@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Error 404 - nu·dp</title>
+<link rel="icon" href="../img/logo.blanco.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary:#050917; 
+  --bg-secondary:#0f172a; 
+  --text-primary:#f3f4f6; 
+  --text-secondary:#d1d5db; 
+  --accent:#2563eb; 
+  --radius:8px; 
+  --transition:all .3s ease;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Inter',sans-serif;
+  background-color:var(--bg-primary);
+  color:var(--text-primary);
+  line-height:1.6;
+  overflow-x:hidden;
+  padding-top:2rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  text-align:center;
+}
+.container{max-width:1000px;margin:0 auto;padding:0 1.5rem;}
+.logo-container{margin-bottom:2rem;}
+.logo img{height:100px;width:auto;animation:fadeIn 1s ease;}
+.legal-content{
+  background-color:var(--bg-secondary);
+  border-radius:var(--radius);
+  padding:3rem;
+  margin-bottom:3rem;
+  animation:fadeIn 1s ease 0.3s;
+}
+h1{font-family:'Montserrat',sans-serif;font-weight:700;font-size:3rem;margin-bottom:1rem;}
+p{color:var(--text-secondary);margin-bottom:1.5rem;}
+a.button{
+  display:inline-block;
+  padding:0.7rem 2rem;
+  background:var(--accent);
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  border-radius:var(--radius);
+  transition:var(--transition);
+  margin:0.5rem;
+}
+a.button:hover{background:#1e40af;transform:scale(1.05);}
+a.link{
+  display:inline-block;
+  padding:0.5rem 1.5rem;
+  border:1px solid var(--accent);
+  color:var(--accent);
+  border-radius:var(--radius);
+  text-decoration:none;
+  transition:var(--transition);
+  margin:0.3rem;
+}
+a.link:hover{background:var(--accent);color:#fff;transform:scale(1.05);}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo-container">
+        <a href="index.html" class="logo" aria-label="Ir al inicio">
+            <img src="https://i.imgur.com/ecRvkEC.png" alt="nu·dp logo">
+        </a>
+    </div>
+
+    <div class="legal-content" role="article">
+        <h1>404 - Página No Encontrada</h1>
+        <p class="last-updated">La dirección a la que intentaste conectarte no existe o ha sido movida.</p>
+        <a href="index.html" class="button">Volver al inicio</a>
+        <div style="margin-top:1rem;">
+            <a href="https://nudp.netlify.app/terms-and-conditions" class="link">Términos y Condiciones</a>
+            <a href="https://nudp.netlify.app/privacy-policy" class="link">Política de Privacidad</a>
+            <a href="https://nudp.netlify.app/legal-notice" class="link">Aviso Legal</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
