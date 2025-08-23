@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Condiciones - nu·dp</title>
+    <meta name="description" content="Términos y condiciones de uso de los servicios de nu·dp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #050917;
+            --bg-secondary: #0f172a;
+            --text-primary: #f3f4f6;
+            --text-secondary: #d1d5db;
+            --primary: #2563eb;
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: 2rem;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .logo-container {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .legal-content {
+            background-color: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            color: var(--text-primary);
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            color: var(--text-primary);
+        }
+        
+        p, ul, ol {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        ul, ol {
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .last-updated {
+            text-align: center;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--bg-secondary);
+            padding: 3rem 1.5rem 2rem;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 999;
+            border: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-to-top:hover {
+            background-color: #1e40af;
+            width: 150px;
+            border-radius: 25px;
+        }
+        
+        .back-to-top:hover::after {
+            content: "Volver arriba";
+            position: absolute;
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+            white-space: nowrap;
+            margin-right: 0.5rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .legal-content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .back-to-top:hover {
+                width: 50px;
+            }
+            
+            .back-to-top:hover::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo-container">
+            <a href="index.html" class="logo">
+                <img src="https://i.imgur.com/ecRvkEC.png" alt="nu·dp logo" style="height:80px; width:auto;">
+            </a>
+        </div>
+
+        <!-- Content -->
+        <div class="legal-content">
+            <h1>Términos y Condiciones</h1>
+            <p class="last-updated">Última actualización: 15 de Enero, 2025</p>
+            
+            <p>Bienvenido a nu·dp. Al acceder y utilizar nuestros servicios, usted acepta cumplir con los siguientes términos y condiciones. Le recomendamos que lea detenidamente este documento.</p>
+            
+            <h2>1. Aceptación de los Términos</h2>
+            <p>Al utilizar nuestros servicios, usted confirma que tiene la capacidad legal para celebrar un contrato y acepta estar obligado por estos Términos y Condiciones.</p>
+            
+            <h2>2. Servicios Ofrecidos</h2>
+            <p>nu·dp ofrece servicios de consultoría y desarrollo en las áreas de Big Data, Inteligencia Artificial, Infraestructura IT, Ciberseguridad, Computación en la Nube y diseño de servidores Discord.</p>
+            
+            <h2>3. Propiedad Intelectual</h2>
+            <p>Todo el contenido incluido en este sitio web, como texto, gráficos, logotipos, imágenes, así como el software utilizado, es propiedad de nu·dp o de sus proveedores y está protegido por las leyes de propiedad intelectual.</p>
+            
+            <h2>4. Limitación de Responsabilidad</h2>
+            <p>nu·dp no será responsable por daños indirectos, incidentales, especiales o consecuentes que resulten del uso o la imposibilidad de utilizar nuestros servicios.</p>
+            
+            <h2>5. Modificaciones de los Términos</h2>
+            <p>Nos reservamos el derecho de modificar estos términos en cualquier momento. Las changes entrarán en vigor inmediatamente después de su publicación en el sitio web.</p>
+            
+            <h2>6. Ley Aplicable</h2>
+            <p>Estos términos se regirán e interpretarán de acuerdo con las leyes de España, sin tener en cuenta sus disposiciones sobre conflictos de leyes.</p>
+            
+            <h2>7. Contacto</h2>
+            <p>Si tiene alguna pregunta sobre estos Términos y Condiciones, por favor contáctenos a través de nuestro sitio web.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <a href="index.html" class="logo">
+                            <img src="https://i.imgur.com/ecRvkEC.png" alt="nu·dp logo" style="height:87px; width:auto;">
+                        </a>
+                    </div>
+                    <p>Soluciones tecnológicas innovadoras para impulsar tu negocio hacia el futuro.</p>
+                    <div class="social-links">
+                        <a href="https://discord.gg/nxZvDA3XEx" class="social-link" target="_blank">
+                            <i class="fab fa-discord"></i>
+                            <span class="link-tooltip">Únete a nuestro Discord</span>
+                        </a>
+                        <a href="https://www.youtube.com/@nudptech" class="social-link" target="_blank">
+                            <i class="fa-brands fa-youtube"></i>
+                            <span class="link-tooltip">Síguenos en YouTube</span>
+                        </a>
+                        <a href="https://www.instagram.com/nudp.tech/" class="social-link" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                            <span class="link-tooltip">Síguenos en Instagram</span>
+                        </a>
+                        <a href="https://github.com/nu-dp" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <span class="link-tooltip">Visita nuestro GitHub</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Servicios</a></li>
+                        <li><a href="technologies.html">Tecnologías</a></li>
+                        <li><a href="solutions.html">Soluciones</a></li>
+                        <li><a href="about.html">Nosotros</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="services/big-data.html">Big Data</a></li>
+                        <li><a href="services/ai.html">AI & Machine Learning</a></li>
+                        <li><a href="services/it-infra.html">IT Infrastructure</a></li>
+                        <li><a href="services/web-app.html">Web & App Design</a></li>
+                        <li><a href="services/cyber.html">Cybersecurity</a></li>
+                        <li><a href="services/cloud.html">Cloud Computing</a></li>
+                        <li><a href="services/discord.html">Discord Servers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="terms-and-conditions.html">Términos y Condiciones</a></li>
+                        <li><a href="privacy-policy.html">Política de Privacidad</a></li>
+                        <li><a href="legal-notice.html">Aviso Legal</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 nu·dp – Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'flex';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - nu·dp</title>
+    <meta name="description" content="Conoce a nu·dp, expertos en Big Data, AI, Cloud, Cybersecurity & Advanced Discord Servers">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Estilos adicionales para la página about */
+        .about-hero {
+            background: linear-gradient(135deg, rgba(5, 9, 23, 0.9) 0%, rgba(15, 23, 42, 0.8) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: -1;
+        }
+        
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about-intro {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .about-intro h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-intro p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin: 5rem 0;
+        }
+        
+        .mv-item {
+            background: var(--bg-tertiary);
+            border-radius: var(--border-radius);
+            padding: 3rem 2rem;
+            text-align: center;
+            border: var(--glass-border);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--glass-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mv-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+        
+        .mv-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--glow-primary);
+        }
+        
+        .mv-item:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .mv-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .mv-item h3 {
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .mv-item p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 5rem 0;
+        }
+        
+        .value-item {
+            background: var(--bg-tertiary);
+            border-radius: var(--border-radius);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border: var(--glass-border);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--glass-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+        
+        .value-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--glow-secondary);
+        }
+        
+        .value-item:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .value-item h3 {
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .value-item p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin: 5rem 0;
+        }
+        
+        .team-member {
+            background: var(--bg-tertiary);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            border: var(--glass-border);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--glass-shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--glow-accent);
+        }
+        
+        .member-image {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .member-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .team-member:hover .member-overlay {
+            opacity: 1;
+        }
+        
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+        
+        .member-overlay .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .member-overlay .social-link {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+        
+        .member-overlay .social-link:hover {
+            background-color: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .team-member h3 {
+            margin: 1.5rem 1.5rem 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .member-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin: 0 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .member-desc {
+            margin: 1rem 1.5rem 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .timeline-section {
+            margin: 5rem 0;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary);
+            border: 4px solid var(--bg-primary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: var(--bg-tertiary);
+            border: var(--glass-border);
+            border-radius: var(--border-radius);
+            position: relative;
+        }
+        
+        .timeline-content h3 {
+            margin-top: 0;
+            color: var(--text-primary);
+        }
+        
+        .timeline-content p {
+            margin-bottom: 0;
+            color: var(--text-secondary);
+        }
+        
+        .stats-section {
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            padding: 4rem 2rem;
+            margin: 5rem 0;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+            
+            .timeline-item:nth-child(odd)::after,
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="https://i.imgur.com/ecRvkEC.png" alt="nu·dp logo" style="height:117px; width:auto;">
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobile-menu">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Servicios</a></li>
+                    <li><a href="technologies.html">Tecnologías</a></li>
+                    <li><a href="solutions.html">Soluciones</a></li>
+                    <li><a href="about.html" class="active">Nosotros</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero about-hero">
+        <div class="container hero-content">
+            <h1 class="fade-in">Sobre <span class="text-gradient">nu·dp</span></h1>
+            <p class="hero-tagline fade-in">Innovación tecnológica al servicio de tu éxito</p>
+            <div class="hero-buttons fade-in">
+                <a href="#mission" class="btn btn-glow">
+                    <span class="btn-text">Nuestra misión</span>
+                    <span class="btn-hover-effect"></span>
+                </a>
+                <a href="#team" class="btn btn-outline">
+                    <span class="btn-text">Nuestro equipo</span>
+                    <span class="btn-hover-effect"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section">
+        <div class="container about-content">
+            <div class="about-intro fade-in">
+                <h2 class="section-title">Nuestra <span class="text-gradient">Historia</span></h2>
+                <p class="section-subtitle">Fundada en 2020, nu·dp nació con la visión de revolucionar el mundo tecnológico a través de soluciones innovadoras. Desde nuestros humildes comienzos como un pequeño equipo de desarrolladores, hemos crecido hasta convertirnos en un referente en el sector tecnológico, ofreciendo servicios de vanguardia en Big Data, Inteligencia Artificial, Cloud Computing, Ciberseguridad y Servidores de Discord avanzados.</p>
+                <p>Nuestro nombre, nu·dp, representa nuestra filosofía: nuevas (nu) dimensiones digitales (dp) para transformar el futuro de las empresas y organizaciones.</p>
+                <p>Con sede en Madrid, España, hemos expandido nuestras operaciones a nivel internacional, trabajando con clientes de diversos sectores y tamaños, desde startups hasta grandes corporaciones.</p>
+            </div>
+            
+            <div class="timeline-section fade-in">
+                <h2 class="section-title">Nuestro <span class="text-gradient">Camino</span></h2>
+                <p class="section-subtitle">Nuuestra historia resumido en 5 años.</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>2020 - Fundación</h3>
+                            <p>Nace nu·dp como empresa de tecnología.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>2021 - Primeros Proyectos</h3>
+                            <p>Desarrollo de soluciones iniciales.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>2022 - Crecimiento</h3>
+                            <p>Ampliación del equipo y servicios.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>2023 - Innovación</h3>
+                            <p>Lanzamiento de nuevas tecnologías propias.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>2024 - IA</h3>
+                            <p>Enfoque en soluciones basadas en Inteligencia Artificial.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>2025 - Actualidad</h3>
+                            <p>Actualmente nos enfocamos en una amplia variedad de servicios y tecnologias.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mission-vision fade-in" id="mission">
+                <div class="mv-item">
+                    <div class="mv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Misión</h3>
+                    <p>Proporcionar soluciones tecnológicas innovadoras que impulsen el crecimiento y la eficiencia de nuestros clientes, transformando datos en conocimiento y desafíos en oportunidades.</p>
+                </div>
+                
+                <div class="mv-item">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Visión</h3>
+                    <p>Convertirnos en líderes globales en soluciones tecnológicas integradas, reconocidos por nuestra capacidad de anticipar las necesidades del mercado digital y ofrecer respuestas creativas y efectivas.</p>
+                </div>
+            </div>
+            
+            <div class="values-section fade-in">
+                <h2 class="section-title">Nuestros <span class="text-gradient">Valores</span></h2>
+                <p class="section-subtitle">Estos son los principios que guían cada decisión y acción en nu·dp.</p>
+                
+                <div class="values-grid">
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Innovación</h3>
+                        <p>Buscamos constantemente nuevas formas de resolver problemas y mejorar procesos, manteniéndonos a la vanguardia tecnológica.</p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Integridad</h3>
+                        <p>Actuamos con honestidad y transparencia en todas nuestras relaciones, construyendo confianza a largo plazo con nuestros clientes.</p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Colaboración</h3>
+                        <p>Creemos en el poder del trabajo en equipo, tanto internamente como con nuestros clientes, para alcanzar los mejores resultados.</p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Excelencia</h3>
+                        <p>Nos comprometemos con la calidad en cada proyecto, superando las expectativas y entregando soluciones de alto impacto.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-section fade-in">
+                <h2 class="section-title">nu·dp en <span class="text-gradient">Números</span></h2>
+                <p class="section-subtitle">Algunas cifras que reflejan nuestro crecimiento y impacto.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="150">0</div>
+                        <div class="stat-label">Proyectos Completados</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="50">0</div>
+                        <div class="stat-label">Clientes Satisfechos</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="25">0</div>
+                        <div class="stat-label">Expertos en el Equipo</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="5">0</div>
+                        <div class="stat-label">Años de Experiencia</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-section fade-in" id="team">
+                <h2 class="section-title">Nuestro <span class="text-gradient">Equipo</span></h2>
+                <p class="section-subtitle">Conoce a los profesionales que hacen posible la magia en nu·dp.</p>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CEO">
+                            <div class="member-overlay">
+                                <div class="social-links">
+                                    <a href="#" class="social-link">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                    <a href="#" class="social-link">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Alex Martínez</h3>
+                        <p class="member-role">CEO & Fundador</p>
+                        <p class="member-desc">Experto en transformación digital con más de 15 años de experiencia en el sector tecnológico.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CTO">
+                            <div class="member-overlay">
+                                <div class="social-links">
+                                    <a href="#" class="social-link">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                    <a href="#" class="social-link">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Sofía Rodríguez</h3>
+                        <p class="member-role">CTO</p>
+                        <p class="member-desc">Especialista en arquitecturas cloud e inteligencia artificial, apasionada por la innovación.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Director de Operaciones">
+                            <div class="member-overlay">
+                                <div class="social-links">
+                                    <a href="#" class="social-link">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                    <a href="#" class="social-link">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Carlos Gómez</h3>
+                        <p class="member-role">Director de Operaciones</p>
+                        <p class="member-desc">Experto en optimización de procesos y gestión de equipos multidisciplinarios.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Directora de Marketing">
+                            <div class="member-overlay">
+                                <div class="social-links">
+                                    <a href="#" class="social-link">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                    <a href="#" class="social-link">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Laura Fernández</h3>
+                        <p class="member-role">Directora de Marketing</p>
+                        <p class="member-desc">Estratega digital con experiencia en posicionamiento de marcas tecnológicas a nivel internacional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section dark-section">
+        <div class="container">
+            <div class="section-cta fade-in">
+                <h2 class="section-title">¿Listo para <span class="text-gradient">Transformar</span> tu Negocio?</h2>
+                <p class="section-subtitle">Hablemos sobre cómo podemos ayudarte a alcanzar tus objetivos tecnológicos.</p>
+                <a href="contact.html" class="btn btn-glow">
+                    <span class="btn-text">Contacta con nosotros</span>
+                    <span class="btn-hover-effect"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <a href="index.html" class="logo">
+                            <img src="https://i.imgur.com/ecRvkEC.png" alt="nu·dp logo" style="height:87px; width:auto;">
+                        </a>
+                    </div>
+                    <p>Soluciones tecnológicas innovadoras para impulsar tu negocio hacia el futuro.</p>
+                    <div class="social-links">
+                        <a href="https://discord.gg/nxZvDA3XEx" class="social-link" target="_blank">
+                            <i class="fab fa-discord"></i>
+                            <span class="link-tooltip">Únete a nuestro Discord</span>
+                        </a>
+                        <a href="https://www.youtube.com/@nudptech" class="social-link" target="_blank">
+                            <i class="fa-brands fa-youtube"></i>
+                            <span class="link-tooltip">Síguenos en YouTube</span>
+                        </a>
+                        <a href="https://www.instagram.com/nudp.tech/" class="social-link" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                            <span class="link-tooltip">Síguenos en Instagram</span>
+                        </a>
+                        <a href="https://github.com/nu-dp" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <span class="link-tooltip">Visita nuestro GitHub</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Servicios</a></li>
+                        <li><a href="technologies.html">Tecnologías</a></li>
+                        <li><a href="solutions.html">Soluciones</a></li>
+                        <li><a href="about.html">Nosotros</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="services/big-data.html">Big Data</a></li>
+                        <li><a href="services/ai.html">AI & Machine Learning</a></li>
+                        <li><a href="services/it-infra.html">IT Infrastructure</a></li>
+                        <li><a href="services/web-app.html">Web & App Design</a></li>
+                        <li><a href="services/cyber.html">Cybersecurity</a></li>
+                        <li><a href="services/cloud.html">Cloud Computing</a></li>
+                        <li><a href="services/discord.html">Discord Servers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="terms-and-conditions.html">Términos y Condiciones</a></li>
+                        <li><a href="privacy-policy.html">Política de Privacidad</a></li>
+                        <li><a href="legal-notice.html">Aviso Legal</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 nu·dp – Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Button -->
+    <div class="floating-contact">
+        <a href="contact.html" class="floating-btn">
+            <i class="fas fa-paper-plane"></i>
+            <span class="floating-text">Contactar</span>
+        </a>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Counter animation for stats
+        document.addEventListener('DOMContentLoaded', function() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+            
+            const countUp = () => {
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(countUp, 10);
+                    } else {
+                        counter.innerText = target;
+                    }
+                });
+            };
+            
+            // Start counter when element is in viewport
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        countUp();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const statsSection = document.querySelector('.stats-section');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+        });
+    </script>
+</body>
+</html>

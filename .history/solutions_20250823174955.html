@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluciones - nu·dp</title>
+    <meta name="description" content="Descubre nuestras soluciones en Big Data, AI, Cloud, Cybersecurity & Advanced Discord Servers">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Estilos adicionales para la página solutions */
+        .solutions-hero {
+            background: linear-gradient(135deg, rgba(5, 9, 23, 0.9) 0%, rgba(15, 23, 42, 0.8) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solutions-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: -1;
+        }
+        
+        .solutions-intro {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .solutions-intro h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .solutions-intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .process-steps {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .process-step {
+            display: flex;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: 80px;
+            bottom: -3rem;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), transparent);
+        }
+        
+        .step-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-right: 2rem;
+            min-width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg-tertiary);
+            border-radius: 50%;
+            border: var(--glass-border);
+            box-shadow: var(--glass-shadow);
+        }
+        
+        .step-content {
+            flex: 1;
+            background-color: var(--bg-tertiary);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            border: var(--glass-border);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--glass-shadow);
+            transition: var(--transition);
+        }
+        
+        .step-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--glow-primary);
+        }
+        
+        .step-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .step-content h3 {
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .step-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .step-content ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .step-content li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-700);
+            position: relative;
+            padding-left: 2rem;
+            color: var(--text-secondary);
+        }
+        
+        .step-content li:before {
+            content: '•';
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .step-content .btn {
+            margin-top: 1.5rem;
+        }
+        
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+        
+        .solution-card {
+            background: var(--bg-tertiary);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            border: var(--glass-border);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--glass-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--glow-secondary);
+        }
+        
+        .solution-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .solution-icon {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .solution-card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .solution-card p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        .solution-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .feature {
+            padding: 0.35rem 0.75rem;
+            background-color: rgba(37, 99, 235, 0.1);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--primary);
+        }
+        
+        .card-btn {
+            margin-top: auto;
+        }
+        
+        .case-studies {
+            margin: 5rem 0;
+        }
+        
+        .case-study {
+            background: var(--bg-tertiary);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            border: var(--glass-border);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--glass-shadow);
+            margin-bottom: 3rem;
+            transition: var(--transition);
+        }
+        
+        .case-study:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--glow-accent);
+        }
+        
+        .case-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .case-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-right: 2rem;
+        }
+        
+        .case-title h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .case-title p {
+            margin-bottom: 0;
+            color: var(--text-secondary);
+        }
+        
+        .case-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+        
+        .case-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .case-results {
+            background: var(--bg-secondary);
+            border-radius: var(--border-radius-sm);
+            padding: 1.5rem;
+        }
+        
+        .case-results h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .result-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .result-item i {
+            color: var(--accent);
+            margin-right: 1rem;
+        }
+        
+        .case-btn {
+            margin-top: 2rem;
+            text-align: right;
+        }
+        
+        .industry-solutions {
+            margin: 5rem 0;
+        }
+        
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .industry-card {
+            background: var(--bg-tertiary);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            border: var(--glass-border);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--glass-shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .industry-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--glow-primary);
+        }
+        
+        .industry-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .industry-card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .industry-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .industry-card .btn {
+            margin-top: auto;
+        }
+        
+        @media (max-width: 968px) {
+            .case-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .case-btn {
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .process-step {
+                flex-direction: column;
+            }
+            
+            .process-step:not(:last-child)::after {
+                left: 30px;
+                top: 60px;
+                bottom: -3rem;
+            }
+            
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .case-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .case-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="https://i.imgur.com/ecRvkEC.png" alt="nu·dp logo" style="height:117px; width:auto;">
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobile-menu">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Servicios</a></li>
+                    <li><a href="technologies.html">Tecnologías</a></li>
+                    <li><a href="solutions.html" class="active">Soluciones</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero solutions-hero">
+        <div class="container hero-content">
+            <h1 class="fade-in">Nuestras <span class="text-gradient">Soluciones</span></h1>
+            <p class="hero-tagline fade-in">Transformamos desafíos en oportunidades con tecnología de vanguardia</p>
+            <div class="hero-buttons fade-in">
+                <a href="#process" class="btn btn-glow">
+                    <span class="btn-text">Nuestro proceso</span>
+                    <span class="btn-hover-effect"></span>
+                </a>
+                <a href="#solutions" class="btn btn-outline">
+                    <span class="btn-text">Soluciones personalizadas</span>
+                    <span class="btn-hover-effect"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Process Section -->
+    <section class="section" id="process">
+        <div class="container">
+            <div class="solutions-intro fade-in">
+                <h2 class="section-title">Nuestro <span class="text-gradient">Proceso</span></h2>
+                <p class="section-subtitle">En nu·dp seguimos un metodología probada para garantizar el éxito de cada proyecto que emprendemos con nuestros clientes.</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>Descubrimiento y Análisis</h3>
+                        <p>Comenzamos comprendiendo a fondo tus necesidades, objetivos y desafíos. Realizamos un análisis exhaustivo de tu situación actual y definimos los requisitos del proyecto.</p>
+                        <ul>
+                            <li>Reuniones de diagnóstico</li>
+                            <li>Análisis de procesos existentes</li>
+                            <li>Identificación de oportunidades</li>
+                            <li>Definición de KPIs</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline">
+                            <span class="btn-text">Solicitar análisis</span>
+                            <span class="btn-hover-effect"></span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-drafting-compass"></i>
+                        </div>
+                        <h3>Diseño y Estrategia</h3>
+                        <p>Basándonos en el análisis previo, diseñamos una estrategia personalizada y un plan de acción detallado que aborde tus necesidades específicas.</p>
+                        <ul>
+                            <li>Diseño de arquitectura tecnológica</li>
+                            <li>Selección de tecnologías adecuadas</li>
+                            <li>Planificación de recursos</li>
+                            <li>Definición de cronograma</li>
+                        </ul>
+                        <a href="#solutions" class="btn btn-outline">
+                            <span class="btn-text">Ver soluciones</span>
+                            <span class="btn-hover-effect"></span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Desarrollo e Implementación</h3>
+                        <p>Nuestro equipo de expertos lleva a cabo el desarrollo e implementación de la solución, siguiendo las mejores prácticas y metodologías ágiles.</p>
+                        <ul>
+                            <li>Desarrollo iterativo</li>
+                            <li>Integración continua</li>
+                            <li>Pruebas rigurosas</li>
+                            <li>Despliegue controlado</li>
+                        </ul>
+                        <a href="#case-studies" class="btn btn-outline">
+                            <span class="btn-text">Ver casos de éxito</span>
+                            <span class="btn-hover-effect"></span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Lanzamiento y Optimización</h3>
+                        <p>Una vez implementada la solución, nos aseguramos de su correcto funcionamiento y realizamos optimizaciones continuas para maximizar su rendimiento.</p>
+                        <ul>
+                            <li>Monitoreo constante</li>
+                            <li>Optimización de rendimiento</li>
+                            <li>Capacitación del equipo</li>
+                            <li>Soporte continuo</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline">
+                            <span class="btn-text">Solicitar soporte</span>
+                            <span class="btn-hover-effect"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="section dark-section" id="solutions">
+        <div class="container">
+            <h2 class="section-title fade-in">Soluciones <span class="text-gradient">Personalizadas</span></h2>
+            <p class="section-subtitle fade-in">Ofrecemos soluciones integrales adaptadas a las necesidades específicas de cada cliente.</p>
+            
+            <div class="solutions-grid">
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Soluciones de Big Data</h3>
+                    <p>Transformamos tus datos en información valiosa para la toma de decisiones estratégicas.</p>
+                    <div class="solution-features">
+                        <span class="feature">Análisis Predictivo</span>
+                        <span class="feature">Data Warehousing</span>
+                        <span class="feature">Visualización</span>
+                    </div>
+                    <div class="card-btn">
+                        <a href="services/big-data.html" class="btn btn-outline">
+                            <span class="btn-text">Más información</span>
+                            <span class="btn-hover-effect"></span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Inteligencia Artificial</h3>
+                    <p>Implementamos soluciones de IA que automatizan procesos y mejoran la experiencia del cliente.</p>
+                    <div class="solution-features">
+                        <span class="feature">Machine Learning</span>
+                        <span class="feature">Procesamiento Lenguaje Natural</span>
+                        <span class="feature">Computer Vision</span>
+                    </div>
+                    <div class="card-btn">
+                        <a href="services/ai.html" class="btn btn-outline">
+                            <span class="btn-text">Más información</span>
+                            <span class="btn-hover-effect"></span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Computing</h3>
+                    <p>Diseñamos e implementamos arquitecturas cloud escalables y seguras para tu negocio.</p>
+                    <div class="solution-features">
+                        <span class="feature">Migración Cloud</span>
+                        <span class="feature">Arquitectura Serverless</span>
+                        <span class="feature">Gestión Híbrida</span>
+                    </div>
+                    <div class="card-btn">
+                        <a href="services/cloud.html" class="btn btn-outline">
+                            <span class="btn-text">Más información</span>
+                            <span class="btn-hover-effect"></span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Ciberseguridad</h3>
+                    <p>Protegemos tus activos digitales con soluciones de seguridad avanzadas y personalizadas.</p>
+                    <div class="solution-features">
+                        <span class="feature">Seguridad Perimetral</span>
+                        <span class="feature">Monitorización SIEM</span>
+                        <span class="feature">Respuesta a Incidentes</span>
+                    </div>
+                    <div class="card-btn">
+                        <a href="services/cyber.html" class="btn btn-outline">
+                            <span class="btn-text">Más información</span>
+                            <span class="btn-hover-effect"></span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Desarrollo Web y Apps</h3>
+                    <p>Creamos experiencias digitales excepcionales con diseños modernos y funcionalidades innovadoras.</p>
+                    <div class="solution-features">
+                        <span class="feature">Diseño UX/UI</span>
+                        <span class="feature">Aplicaciones Web Progresivas</span>
+                        <span class="feature">E-commerce</span>
+                    </div>
+                    <div class="card-btn">
+                        <a href="services/web-app.html" class="btn btn-outline">
+                            <span class="btn-text">Más información</span>
+                            <span class="btn-hover-effect"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="service-title">Cloud Computing</h3>
+                    <p class="service-description">Implementamos soluciones en la nube para optimizar tus operaciones y reducir costos.</p>
+                    <div class="service-features">
+                        <span class="feature">Migración cloud</span>
+                        <span class="feature">Escalabilidad</span>
+                        <span class="feature">Automatización</span>
+                    </div>
+                    <a href="services/cloud.html" class="btn btn-outline card-btn">
+                        <span class="btn-text">Más información</span>
+                        <div class="btn-hover-effect"></div>
+                    </a>
+                </div>
+                
+                <div class="solution-card fade-in">
+                    <div class="solution-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <h3>Servidores de Discord</h3>
+                    <p>Diseñamos y gestionamos comunidades de Discord avanzadas con bots personalizados y moderación inteligente.</p>
+                    <div class="solution-features">
+                        <span class="feature">Bots Personalizados</span>
+                        <span class="feature">Sistemas de Moderación</span>
+                        <span class="feature">Integraciones API</span>
+                    </div>
+                    <div class="card-btn">
+                        <a href="services/discord.html" class="btn btn-outline">
+                            <span class="btn-text">Más información</span>
+                            <span class="btn-hover-effect"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Solutions Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Soluciones por <span class="text-gradient">Industria</span></h2>
+            <p class="section-subtitle fade-in">Adaptamos nuestras soluciones a las necesidades específicas de cada sector.</p>
+            
+            <div class="industry-grid">
+                <div class="industry-card fade-in">
+                    <div class="industry-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Retail y E-commerce</h3>
+                    <p>Optimizamos la experiencia de compra y gestionamos inventarios con soluciones de Big Data e IA.</p>
+                    <a href="#contact" class="btn btn-outline">
+                        <span class="btn-text">Solicitar solución</span>
+                        <span class="btn-hover-effect"></span>
+                    </a>
+                </div>
+                
+                <div class="industry-card fade-in">
+                    <div class="industry-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Servicios Financieros</h3>
+                    <p>Protegemos transacciones y detectamos fraudes con sistemas avanzados de ciberseguridad.</p>
+                    <a href="#contact" class="btn btn-outline">
+                        <span class="btn-text">Solicitar solución</span>
+                        <span class="btn-hover-effect"></span>
+                    </a>
+                </div>
+                
+                <div class="industry-card fade-in">
+                    <div class="industry-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Salud</h3>
+                    <p>Desarrollamos sistemas de telemedicina y análisis de datos para mejorar la atención médica.</p>
+                    <a href="#contact" class="btn btn-outline">
+                        <span class="btn-text">Solicitar solución</span>
+                        <span class="btn-hover-effect"></span>
+                    </a>
+                </div>
+                
+                <div class="industry-card fade-in">
+                    <div class="industry-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Manufactura</h3>
+                    <p>Implementamos IoT y análisis predictivo para optimizar procesos de producción.</p>
+                    <a href="#contact" class="btn btn-outline">
+                        <span class="btn-text">Solicitar solución</span>
+                        <span class="btn-hover-effect"></span>
+                    </a>
+                </div>
+                
+                <div class="industry-card fade-in">
+                    <div class="industry-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Educación</h3>
+                    <p>Creamos plataformas de e-learning personalizadas con herramientas de análisis de rendimiento.</p>
+                    <a href="#contact" class="btn btn-outline">
+                        <span class="btn-text">Solicitar solución</span>
+                        <span class="btn-hover-effect"></span>
+                    </a>
+                </div>
+                
+                <div class="industry-card fade-in">
+                    <div class="industry-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Entretenimiento y Gaming</h3>
+                    <p>Desarrollamos comunidades de Discord avanzadas y plataformas de streaming con baja latencia.</p>
+                    <a href="#contact" class="btn btn-outline">
+                        <span class="btn-text">Solicitar solución</span>
+                        <span class="btn-hover-effect"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-cta fade-in" id="contact">
+                <h2 class="section-title">¿Listo para <span class="text-gradient">Transformar</span> tu Negocio?</h2>
+                <p class="section-subtitle">Hablemos sobre cómo podemos ayudarte a alcanzar tus objetivos tecnológicos.</p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-glow">
+                        <span class="btn-text">Contacta con nosotros</span>
+                        <span class="btn-hover-effect"></span>
+                    </a>
+                    <a href="services.html" class="btn btn-outline">
+                        <span class="btn-text">Explorar servicios</span>
+                        <span class="btn-hover-effect"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <a href="index.html" class="logo">
+                            <img src="https://i.imgur.com/ecRvkEC.png" alt="nu·dp logo" style="height:87px; width:auto;">
+                        </a>
+                    </div>
+                    <p>Soluciones tecnológicas innovadoras para impulsar tu negocio hacia el futuro.</p>
+                    <div class="social-links">
+                        <a href="https://discord.gg/nxZvDA3XEx" class="social-link" target="_blank">
+                            <i class="fab fa-discord"></i>
+                            <span class="link-tooltip">Únete a nuestro Discord</span>
+                        </a>
+                        <a href="https://www.youtube.com/@nudptech" class="social-link" target="_blank">
+                            <i class="fa-brands fa-youtube"></i>
+                            <span class="link-tooltip">Síguenos en YouTube</span>
+                        </a>
+                        <a href="https://www.instagram.com/nudp.tech/" class="social-link" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                            <span class="link-tooltip">Síguenos en Instagram</span>
+                        </a>
+                        <a href="https://github.com/nu-dp" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <span class="link-tooltip">Visita nuestro GitHub</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Servicios</a></li>
+                        <li><a href="technologies.html">Tecnologías</a></li>
+                        <li><a href="solutions.html">Soluciones</a></li>
+                        <li><a href="about.html">Nosotros</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="services/big-data.html">Big Data</a></li>
+                        <li><a href="services/ai.html">AI & Machine Learning</a></li>
+                        <li><a href="services/it-infra.html">IT Infrastructure</a></li>
+                        <li><a href="services/web-app.html">Web & App Design</a></li>
+                        <li><a href="services/cyber.html">Cybersecurity</a></li>
+                        <li><a href="services/cloud.html">Cloud Computing</a></li>
+                        <li><a href="services/discord.html">Discord Servers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="terms-and-conditions.html">Términos y Condiciones</a></li>
+                        <li><a href="privacy-policy.html">Política de Privacidad</a></li>
+                        <li><a href="legal-notice.html">Aviso Legal</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 nu·dp – Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Button -->
+    <div class="floating-contact">
+        <a href="contact.html" class="floating-btn">
+            <i class="fas fa-paper-plane"></i>
+            <span class="floating-text">Contactar</span>
+        </a>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

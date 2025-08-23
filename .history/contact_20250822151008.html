@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - nu·dp</title>
+    <meta name="description" content="Contacta con nu·dp para soluciones tecnológicas personalizadas">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Estilos específicos para la página de contacto */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-info {
+            padding-right: 2rem;
+        }
+        
+        .contact-form-container {
+            background-color: var(--bg-tertiary);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            border: var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: var(--transition);
+            transform-origin: left top;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.875rem;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--gray-700);
+            border-radius: var(--border-radius-sm);
+            color: var(--text-primary);
+            transition: var(--transition);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+        
+        .form-group input:focus + .input-line,
+        .form-group textarea:focus + .input-line,
+        .form-group select:focus + .input-line {
+            transform: scaleX(1);
+        }
+        
+        .input-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+        
+        .contact-details {
+            margin: 2.5rem 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: var(--bg-tertiary);
+            border-radius: var(--border-radius);
+            border: var(--glass-border);
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--glass-shadow);
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-right: 1.5rem;
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .contact-text h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .contact-text p {
+            margin-bottom: 0.3rem;
+            color: var(--text-secondary);
+        }
+        
+        .social-links.large {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links.large .social-link {
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+        }
+        
+        .map-container {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--glass-shadow);
+            margin-top: 2rem;
+        }
+        
+        /* Animaciones para los campos del formulario */
+        @keyframes floatIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .form-group {
+            animation: floatIn 0.6s ease forwards;
+        }
+        
+        .form-group:nth-child(1) { animation-delay: 0.1s; }
+        .form-group:nth-child(2) { animation-delay: 0.2s; }
+        .form-group:nth-child(3) { animation-delay: 0.3s; }
+        .form-group:nth-child(4) { animation-delay: 0.4s; }
+        .form-group:nth-child(5) { animation-delay: 0.5s; }
+        .form-group:nth-child(6) { animation-delay: 0.6s; }
+        
+        /* Responsive */
+        @media (max-width: 968px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                padding-right: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-form-container {
+                padding: 1.5rem;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+                <a href="index.html" class="logo">
+                    <img src="https://i.imgur.com/ecRvkEC.png" alt="nu·dp logo" style="height:117px; width:auto;">
+                </a>
+            
+            <button class="mobile-menu-btn" id="mobile-menu">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Servicios</a></li>
+                    <li><a href="technologies.html">Tecnologías</a></li>
+                    <li><a href="solutions.html">Soluciones</a></li>
+                    <li><a href="about.html">Nosotros</a></li>
+                    <li><a href="contact.html" class="active">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero contact-hero">
+        <div class="container hero-content">
+            <h1 class="fade-in">¿En qué podemos <span class="text-gradient">ayudarte</span>?</h1>
+            <p class="hero-tagline fade-in">Estamos listos para transformar tus ideas en soluciones tecnológicas innovadoras</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section">
+        <div class="container">
+            <div class="contact-content">
+                <!-- Información de contacto -->
+                <div class="contact-info fade-in">
+                    <h2>Información de Contacto</h2>
+                    <p>No dudes en ponerte en contacto con nosotros. Nuestro equipo estará encantado de ayudarte con cualquier consulta o proyecto que tengas en mente.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Argentina</h3>
+                                <p>Ciudad de Córdoba, Córdoba, Argentina.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Horarios</h3>
+                                <p>Lunes a Viernes, 15:00 - 21:00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Email</h3>
+                                <p>nu.dp@pm.me</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-discord"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Discord</h3>
+                                <p>Únete a nuestro servidor</p>
+                                <p>https://discord.gg/nxZvDA3XEx</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links large">
+                        <a href="https://discord.gg/nxZvDA3XEx" class="social-link" target="_blank">
+                            <i class="fab fa-discord"></i>
+                            <span class="link-tooltip">Únete a nuestro Discord</span>
+                        </a>
+                        <a href="https://www.youtube.com/@nudptech" class="social-link" target="_blank">
+                            <i class="fa-brands fa-youtube"></i>
+                            <span class="link-tooltip">Síguenos en YouTube</span>
+                        </a>
+                        <a href="https://www.instagram.com/nudp.tech/" class="social-link" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                            <span class="link-tooltip">Síguenos en Instagram</span>
+                        </a>
+                        <a href="https://github.com/nu-dp" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <span class="link-tooltip">Visita nuestro GitHub</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Formulario de contacto -->
+                <div class="contact-form-container fade-in">
+                    <h2>Envíanos un mensaje</h2>
+                    <form id="contact-form" class="contact-form" action="mailto:nu.dp@pm.me" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <label for="name">Nombre completo</label>
+                            <input type="text" id="name" name="name" required>
+                            <div class="input-line"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" name="email" required>
+                            <div class="input-line"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Empresa (opcional)</label>
+                            <input type="text" id="company" name="company">
+                            <div class="input-line"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Servicio de interés</label>
+                            <select id="service" name="service">
+                                <option value="">Selecciona un servicio</option>
+                                <option value="big-data">Big Data</option>
+                                <option value="ai">AI & Machine Learning</option>
+                                <option value="it-infra">IT Infrastructure</option>
+                                <option value="web-app">Web & App Design</option>
+                                <option value="cyber">Cybersecurity</option>
+                                <option value="cloud">Cloud Computing</option>
+                                <option value="discord">Discord Servers</option>
+                                <option value="other">Otro</option>
+                            </select>
+                            <div class="input-line"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Asunto</label>
+                            <input type="text" id="subject" name="subject" required>
+                            <div class="input-line"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="body" rows="5" required></textarea>
+                            <div class="input-line"></div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-glow">
+                            <span class="btn-text">Enviar mensaje</span>
+                            <div class="btn-hover-effect"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="section dark-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Nuestra <span class="text-gradient">Ubicación</span></h2>
+            <div class="map-container fade-in">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108977.23899213591!2d-64.276612865925!3d-31.399280321898452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432985f478f5b69%3A0xb0a24f9a5366b092!2zQ8OzcmRvYmE!5e0!3m2!1ses!2sar!4v1755886188041!5m2!1ses!2sar" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <a href="index.html" class="logo">
+                            <img src="https://i.imgur.com/ecRvkEC.png" alt="nu·dp logo" style="height:87px; width:auto;">
+                        </a>
+                    </div>
+                    <p>Soluciones tecnológicas innovadoras para impulsar tu negocio hacia el futuro.</p>
+                    <div class="social-links">
+                        <a href="https://discord.gg/nxZvDA3XEx" class="social-link" target="_blank">
+                            <i class="fab fa-discord"></i>
+                            <span class="link-tooltip">Únete a nuestro Discord</span>
+                        </a>
+                        <a href="https://www.youtube.com/@nudptech" class="social-link" target="_blank">
+                            <i class="fa-brands fa-youtube"></i>
+                            <span class="link-tooltip">Síguenos en YouTube</span>
+                        </a>
+                        <a href="https://www.instagram.com/nudp.tech/" class="social-link" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                            <span class="link-tooltip">Síguenos en Instagram</span>
+                        </a>
+                        <a href="https://github.com/nu-dp" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <span class="link-tooltip">Visita nuestro GitHub</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Servicios</a></li>
+                        <li><a href="technologies.html" class="active">Tecnologías</a></li>
+                        <li><a href="solutions.html">Soluciones</a></li>
+                        <li><a href="about.html">Nosotros</a></li>
+                        <li><a href="contact.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="services/big-data.html">Big Data</a></li>
+                        <li><a href="services/ai.html">AI & Machine Learning</a></li>
+                        <li><a href="services/it-infra.html">IT Infrastructure</a></li>
+                        <li><a href="services/web-app.html">Web & App Design</a></li>
+                        <li><a href="services/cyber.html">Cybersecurity</a></li>
+                        <li><a href="services/cloud.html">Cloud Computing</a></li>
+                        <li><a href="services/discord.html">Discord Servers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="terms-and-conditions.html">Términos y Condiciones</a></li>
+                        <li><a href="privacy-policy.html">Política de Privacidad</a></li>
+                        <li><a href="legal-notice.html">Aviso Legal</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 nu·dp – Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Funcionalidad específica para la página de contacto
+        document.addEventListener('DOMContentLoaded', function() {
+            // Validación del formulario
+            const contactForm = document.getElementById('contact-form');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    let isValid = true;
+                    const requiredFields = contactForm.querySelectorAll('[required]');
+                    
+                    requiredFields.forEach(field => {
+                        if (!field.value.trim()) {
+                            isValid = false;
+                            field.style.borderColor = 'red';
+                            
+                            // Restablecer el color del borde después de un tiempo
+                            setTimeout(() => {
+                                field.style.borderColor = '';
+                            }, 3000);
+                        }
+                    });
+                    
+                    if (!isValid) {
+                        e.preventDefault();
+                        alert('Por favor, complete todos los campos obligatorios.');
+                    } else {
+                        // Personalizar el asunto del correo con el servicio seleccionado
+                        const service = document.getElementById('service').value;
+                        const subject = document.getElementById('subject').value;
+                        
+                        if (service) {
+                            document.getElementById('subject').value = `[${service.toUpperCase()}] ${subject}`;
+                        }
+                        
+                        // Mensaje de confirmación
+                        alert('Su mensaje se está enviando. Se abrirá su cliente de correo electrónico.');
+                    }
+                });
+                
+                // Efectos de enfoque en los campos del formulario
+                const formFields = contactForm.querySelectorAll('input, textarea, select');
+                
+                formFields.forEach(field => {
+                    field.addEventListener('focus', function() {
+                        this.parentElement.classList.add('focused');
+                    });
+                    
+                    field.addEventListener('blur', function() {
+                        if (!this.value) {
+                            this.parentElement.classList.remove('focused');
+                        }
+                    });
+                });
+            }
+            
+            // Animación para los elementos de información de contacto
+            const contactItems = document.querySelectorAll('.contact-item');
+            
+            contactItems.forEach((item, index) => {
+                item.style.animationDelay = `${0.2 + (index * 0.1)}s`;
+                item.classList.add('fade-in');
+            });
+        });
+    </script>
+</body>
+</html>
