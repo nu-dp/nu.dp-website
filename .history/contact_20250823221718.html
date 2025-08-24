@@ -190,66 +190,6 @@
             color: var(--text-secondary);
         }
         
-        /* Estilos para la ventana de éxito */
-        .success-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(5, 9, 23, 0.95);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-        }
-        
-        .success-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .success-content {
-            background: var(--bg-tertiary);
-            border-radius: var(--border-radius);
-            padding: 3rem;
-            text-align: center;
-            max-width: 500px;
-            width: 90%;
-            border: var(--glass-border);
-            box-shadow: var(--glass-shadow);
-            transform: translateY(50px);
-            transition: var(--transition);
-        }
-        
-        .success-modal.active .success-content {
-            transform: translateY(0);
-        }
-        
-        .success-icon {
-            font-size: 5rem;
-            color: #10b981;
-            margin-bottom: 1.5rem;
-            animation: pulse 2s infinite;
-        }
-        
-        .success-content h2 {
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-        }
-        
-        .success-content p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-        
-        .success-btn {
-            margin-top: 1.5rem;
-        }
-        
         @media (max-width: 968px) {
             .contact-content {
                 grid-template-columns: 1fr;
@@ -426,7 +366,7 @@
             <h2>¡Mensaje Enviado!</h2>
             <p>Gracias por contactarnos. Hemos recibido tu mensaje y nos pondremos en contacto contigo pronto.</p>
             <button class="btn btn-glow success-btn" id="close-success">
-                <span class="btn-text">Gracias</span>
+                <span class="btn-text">Entendido</span>
                 <span class="btn-hover-effect"></span>
             </button>
         </div>

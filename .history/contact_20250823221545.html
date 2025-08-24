@@ -190,66 +190,6 @@
             color: var(--text-secondary);
         }
         
-        /* Estilos para la ventana de éxito */
-        .success-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(5, 9, 23, 0.95);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-        }
-        
-        .success-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .success-content {
-            background: var(--bg-tertiary);
-            border-radius: var(--border-radius);
-            padding: 3rem;
-            text-align: center;
-            max-width: 500px;
-            width: 90%;
-            border: var(--glass-border);
-            box-shadow: var(--glass-shadow);
-            transform: translateY(50px);
-            transition: var(--transition);
-        }
-        
-        .success-modal.active .success-content {
-            transform: translateY(0);
-        }
-        
-        .success-icon {
-            font-size: 5rem;
-            color: #10b981;
-            margin-bottom: 1.5rem;
-            animation: pulse 2s infinite;
-        }
-        
-        .success-content h2 {
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-        }
-        
-        .success-content p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-        
-        .success-btn {
-            margin-top: 1.5rem;
-        }
-        
         @media (max-width: 968px) {
             .contact-content {
                 grid-template-columns: 1fr;
@@ -373,7 +313,7 @@
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108977.23899213591!2d-64.27661286592503!3d-31.399280321898452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432985f478f5b69%3A0xb0a24f9a5366b092!2zQ8OzcmRvYmE!5e0!3m2!1ses!2sar!4v1755980759099!5m2!1ses!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
-
+                                    <!-- Form -->
                 <div class="contact-form-container fade-in" id="contact-form">
                     <h2 class="section-title">Envíanos un <span class="text-gradient">Mensaje</span></h2>
                     <p class="section-subtitle">Rellena el formulario y nos pondremos en contacto contigo lo antes posible.</p>
@@ -390,16 +330,18 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="service">Servicio de Interés</label>
-                            <select id="service" name="service">
-                                <option value="">Selecciona un servicio</option>
-                                <option value="big-data">Big Data</option>
-                                <option value="ai">AI & Machine Learning</option>
-                                <option value="it-infra">IT Infrastructure</option>
-                                <option value="web-app">Web & App Design</option>
-                                <option value="cyber">Cybersecurity</option>
-                                <option value="cloud">Cloud Computing</option>
-                                <option value="discord">Discord Servers</option>
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Asunto *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="consultation">Consulta general</option>
+                                <option value="quote">Solicitud de cotización</option>
+                                <option value="support">Soporte técnico</option>
+                                <option value="partnership">Oportunidad de colaboración</option>
                                 <option value="other">Otro</option>
                             </select>
                         </div>
@@ -424,9 +366,9 @@
                 <i class="fas fa-check-circle"></i>
             </div>
             <h2>¡Mensaje Enviado!</h2>
-            <p>Gracias por contactarnos. Hemos recibido tu mensaje y nos pondremos en contacto contigo pronto.</p>
+            <p>Gracias por contactarnos. Hemos recibido tu mensaje y nos pondremos en contacto contigo en un plazo máximo de 24 horas.</p>
             <button class="btn btn-glow success-btn" id="close-success">
-                <span class="btn-text">Gracias</span>
+                <span class="btn-text">Entendido</span>
                 <span class="btn-hover-effect"></span>
             </button>
         </div>
