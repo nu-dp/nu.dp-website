@@ -374,7 +374,7 @@
                     </div>
                 </div>
 
-                <div class="contact-form-container fade-in" id="contact-form-container">
+                <div class="contact-form-container fade-in" id="contact-form">
                     <h2 class="section-title">Envíanos un <span class="text-gradient">Mensaje</span></h2>
                     <p class="section-subtitle">Rellena el formulario y nos pondremos en contacto contigo lo antes posible.</p>
 
@@ -541,55 +541,30 @@
     <script src="js/script.js"></script>
     <!-- JavaScript para el formulario -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contact-form');
-            const successModal = document.getElementById('success-modal');
-            const closeSuccessBtn = document.getElementById('close-success');
+        contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
 
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
+    const formData = new FormData(contactForm);
 
-                const formData = new FormData(contactForm);
-
-                fetch(contactForm.action, {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => {
-                    if (response.ok) {
-                        // Mostrar modal
-                        successModal.classList.add('active');
-                        // Resetear formulario
-                        contactForm.reset();
-                    } else {
-                        alert('Hubo un error al enviar el formulario.');
-                    }
-                })
-                .catch(err => {
-                    console.error(err);
-                    alert('Hubo un error al enviar el formulario.');
-                });
-            });
-
-            // Cerrar modal con botón
-            closeSuccessBtn.addEventListener('click', function() {
-                successModal.classList.remove('active');
-            });
-
-            // Cerrar modal al hacer clic fuera
-            successModal.addEventListener('click', function(e) {
-                if (e.target === successModal) {
-                    successModal.classList.remove('active');
-                }
-            });
-
-            // Cerrar con tecla Escape
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && successModal.classList.contains('active')) {
-                    successModal.classList.remove('active');
-                }
-            });
-        });
+    fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => {
+        if (response.ok) {
+            // Mostrar modal de éxito
+            successModal.classList.add('active');
+            // Opcional: resetear formulario
+            contactForm.reset();
+        } else {
+            alert('Hubo un error al enviar el formulario');
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        alert('Hubo un error al enviar el formulario');
+    });
+});
 
     </script>
 </body>
